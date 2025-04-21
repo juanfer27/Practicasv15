@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.bancolombia.inventory.mibancolombiainventario.PrimaryController">
+             <!-- area superior logo y encabezados -->
+    <top>
+        <VBox alignment="CENTER" spacing="10">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            <!-- Imagen del logo -->
+            <ImageView fx:id="logoImage" fitHeight="150" fitWidth="250"/>
+            <!-- Título principal -->
+            <Label text="Mi Bancolombia - Sistema de Inventario"
+                   style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #1A1A1A;" />
+             <!-- Subtítulo de bienvenida -->
+            <Label text="¡Bienvenido al sistema de gestión de productos!"
+                   style="-fx-font-size: 14px; -fx-text-fill: #666;" />
+        </VBox>
+    </top>
+    <!-- area central tabla, campos de entrada y botones -->
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+                <!-- Tabla de productos -->
+            <TableView fx:id="tablaProductos" style="-fx-background-color: #f5f5f5; -fx-border-radius: 10;">
+                <columns>
+                    <!-- columna de identificador de cada atributo -->
+                    <TableColumn fx:id="colId" text="ID" prefWidth="60" />
+                    <TableColumn fx:id="colNombre" text="Nombre" prefWidth="150" />
+                    <TableColumn fx:id="colPrecio" text="Precio" prefWidth="100" />
+                    <TableColumn fx:id="colCantidad" text="Cantidad" prefWidth="100" />
+                </columns>
+            </TableView>
+            <!-- fila de campos de texto para ingreso de datos -->
+            <HBox spacing="10" alignment="CENTER">
+                <TextField fx:id="txtId" promptText="ID" style="-fx-background-radius: 8;" />
+                <TextField fx:id="txtNombre" promptText="Nombre" style="-fx-background-radius: 8;" />
+                <TextField fx:id="txtPrecio" promptText="Precio" style="-fx-background-radius: 8;" />
+                <TextField fx:id="txtCantidad" promptText="Cantidad" style="-fx-background-radius: 8;" />
+            </HBox>
+            <!-- Fila de campos de texto para ingreso de datos -->
+            <HBox spacing="10" alignment="CENTER">
+
+                <Button text="Guardar" onAction="#guardarProducto"
+                        style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10;" />
+
+                <Button text="Modificar" onAction="#modificarProducto"
+                        style="-fx-background-color: #FFC107; -fx-text-fill: black; -fx-font-weight: bold; -fx-background-radius: 10;" />
+
+                <Button text="Eliminar" onAction="#eliminarProducto"
+                        style="-fx-background-color: #DC3545; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10;" />
+
+                <Button text="Limpiar" onAction="#limpiarCampos"
+                        style="-fx-background-color: #CED4DA; -fx-text-fill: black; -fx-font-weight: bold; -fx-background-radius: 10;" />
+  
+                <Button text="Exportar Excel"
+                                onAction="#exportarExcel"
+                                style="-fx-background-color: #00C389; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10;" />
+
+                
+            </HBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>
+
